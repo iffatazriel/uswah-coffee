@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Database untuk SaaS POS Makaryo
+model Merchant {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  staffs    Staff[]
+  products  Product[]
+}
+
+model Staff {
+  id          String   @id @default(cuid())
+  name        String
+  pin         String   // Simpan dalam bentuk Hash
+  merchantId  String
+  merchant    Merchant @relation(fields: [merchantId], references: [id])
+  shifts      Shift[]
+}
+
+model Shift {
+  id         String    @id @default(cuid())
+  staffId    String
+  staff      Staff     @relation(fields: [staffId], references: [id])
+  startTime  DateTime  @default(now())
+  endTime    DateTime?
+  startCash  Float     // Saldo awal laci kasir
+  orders     Order[]
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  price       Float
+  image       String?
+  merchantId  String
+  merchant    Merchant @relation(fields: [merchantId], references: [id])
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  total     Float
+  shiftId   String
+  shift     Shift    @relation(fields: [shiftId], references: [id])
+  createdAt DateTime @default(now())
+}
