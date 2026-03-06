@@ -1,6 +1,6 @@
 "use client";
 
-import { TableData } from "./constans";
+import { TableData } from "./constants/item";
 
 // app/dashboard/table/_components/table-card.tsx
 

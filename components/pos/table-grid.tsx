@@ -3,7 +3,7 @@
 // app/dashboard/table/_components/table-grid.tsx
 import { useState } from "react";
 import TableCard from "./table-card";
-import { ITEMS_PER_PAGE, TableData, TABLES } from "./constans";
+import { ITEMS_PER_PAGE, TableData, TABLES } from "./constants/item";
 import { SearchBar } from "./search-bar";
 import { FloorFilter } from "./floor-filter";
 import { Pagination } from "./pagination";

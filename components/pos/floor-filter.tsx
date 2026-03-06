@@ -1,6 +1,6 @@
 "use client";
 
-import { FLOORS } from "./constans";
+import { FLOORS } from "./constants/item";
 
 // app/dashboard/table/_components/floor-filter.tsx
 
