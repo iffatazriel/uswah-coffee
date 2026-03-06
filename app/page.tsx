@@ -3,8 +3,8 @@
 
 import { startShiftAction } from "@/app/actions/auth";
 import { useAuthStore } from "@/lib/store";
-import Numpad from "@/component/auth/numpad";
-import PinDisplay from "@/component/auth/pin-display";
+import Numpad from "@/components/auth/numpad";
+import PinDisplay from "@/components/auth/pin-display";
 
 export default function LoginPage() {
   const { pin } = useAuthStore();
