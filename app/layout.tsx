@@ -1,32 +1,27 @@
-import Sidebar from "@/components/pos/sidebar";
+// app/layout.tsx
+import type { Metadata } from "next";
 
-export default function DashboardLayout({
+export const metadata: Metadata = {
+  title: "Makaryo POS",
+  description: "Uswah Coffee Point of Sale",
+};
+
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "100vh",
-        fontFamily: "'DM Sans', sans-serif",
-        background: "#f5f5f5",
-        overflow: "hidden",
-      }}
-    >
-      <Sidebar />
-
-      <main
+    <html lang="en">
+      <body
         style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          overflow: "hidden",
+          margin: 0,
+          fontFamily: "'DM Sans', sans-serif",
+          background: "#f8f8f8",
         }}
       >
         {children}
-      </main>
-    </div>
+      </body>
+    </html>
   );
 }

@@ -5,6 +5,7 @@ import { usePOSStore } from "@/lib/store/pos-store";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "./types";
+import { logoutAction } from "@/app/actions/auth";
 
 
 export default function Sidebar() {
@@ -67,7 +68,7 @@ export default function Sidebar() {
               whiteSpace: "nowrap",
             }}
           >
-            Makaryo
+            Uswah Coffee
           </span>
         )}
 
@@ -130,10 +131,10 @@ export default function Sidebar() {
                   fontSize: 14,
                 }}
               >
-                B
+                I
               </div>
               <div>
-                <p style={{ fontWeight: 600, fontSize: 14, color: "#1a1a1a" }}>Broicad</p>
+                <p style={{ fontWeight: 600, fontSize: 14, color: "#1a1a1a" }}>Iffatazriel</p>
                 <p style={{ fontSize: 11, color: "#bbb" }}>10:00 Am – 22:00 Pm</p>
               </div>
             </div>
@@ -177,31 +178,36 @@ export default function Sidebar() {
         })}
       </nav>
 
-      {/* Logout */}
-      <button
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-          padding: "11px 16px",
-          borderRadius: 12,
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          color: "#FF5200",
-          fontWeight: 500,
-          fontSize: 14,
-          marginTop: 8,
-          width: "100%",
-        }}
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          <polyline points="16 17 21 12 16 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-        {!sidebarCollapsed && <span>Log out</span>}
-      </button>
+      {/* ── Logout ── */}
+      <form action={logoutAction}>
+        <button
+          type="submit"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 12,
+            padding: "11px 16px",
+            borderRadius: 12,
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            color: "#FF5200",
+            fontWeight: 500,
+            fontSize: 14,
+            marginTop: 8,
+            width: "100%",
+            fontFamily: "'DM Sans', sans-serif",
+          }}
+          title={sidebarCollapsed ? "Log out" : undefined}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <polyline points="16 17 21 12 16 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+          {!sidebarCollapsed && <span>Log out</span>}
+        </button>
+      </form>
     </aside>
   );
 }

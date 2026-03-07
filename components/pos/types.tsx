@@ -2,9 +2,15 @@
 
 export const NAV_ITEMS = [
   {
+    id: "dashboard",
+    label: "Dashboard",
+    href: "/dashboard",
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8v-10h-8v10zm0-18v6h8V3h-8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>`,
+  },
+  {
     id: "cashier",
     label: "Cashier",
-    href: "/dashboard/pos",
+    href: "/dashboard/cashier",
     icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="2"/><path d="M2 10h20" stroke="currentColor" strokeWidth="2"/></svg>`,
   },
   {
